@@ -1,0 +1,10 @@
+{
+  "name": "css-typed-om-workbench",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CSS Typed OM 样式数值计算工作台：单位换算、表达式求值、批量更新与性能对照",
+  "scripts": {
+    "test": "node --test",
+    "serve": "python3 -m http.server 8080"
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Typed OM 样式计算工作台</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>CSS Typed OM 样式计算工作台</h1>
+    <p id="support-status" class="status">检测中…</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. 单位换算</h2>
+      <div class="row">
+        <input id="conv-value" type="number" value="10" step="any" />
+        <select id="conv-from">
+          <option>px</option><option selected>em</option><option>rem</option>
+          <option>vw</option><option>vh</option><option>%</option>
+        </select>
+        <span>→</span>
+        <select id="conv-to">
+          <option selected>px</option><option>em</option><option>rem</option>
+          <option>vw</option><option>vh</option><option>%</option>
+        </select>
+        <button id="btn-convert">换算</button>
+      </div>
+      <div id="conv-result" class="result">—</div>
+    </section>
+
+    <section class="card">
+      <h2>2. 表达式求值</h2>
+      <div class="row">
+        <input id="expr-input" type="text" value="calc(10px + 2em) * 3 - 5vw" />
+        <button id="btn-eval">求值</button>
+      </div>
+      <div id="expr-result" class="result">—</div>
+      <p class="hint">支持 + - * /、括号、calc()，单位 px/em/rem/vw/vh/%</p>
+    </section>
+
+    <section class="card">
+      <h2>3. 批量样式更新</h2>
+      <div class="row wrap">
+        <label>宽 <input id="upd-width" type="text" value="200px + 5em" /></label>
+        <label>高 <input id="upd-height" type="text" value="10vh + 40px" /></label>
+        <label>左边距 <input id="upd-margin" type="text" value="2rem * 2" /></label>
+        <label>上内边距 <input id="upd-padding" type="text" value="50% / 5" /></label>
+        <button id="btn-batch">应用</button>
+      </div>
+      <div id="demo-box" class="demo-box">Demo Box</div>
+      <div id="batch-log" class="log"></div>
+    </section>
+
+    <section class="card">
+      <h2>4. 性能对照（Typed OM vs 字符串拼接）</h2>
+      <div class="row">
+        <label>迭代次数 <input id="bench-iterations" type="number" value="5000" min="100" /></label>
+        <button id="btn-bench">运行基准</button>
+      </div>
+      <div id="bench-log" class="log"></div>
+      <h3>PerformanceObserver 采集</h3>
+      <div id="perf-log" class="log small"></div>
+      <h3>历史记录（IndexedDB）</h3>
+      <div id="history-log" class="log small"></div>
+      <button id="btn-clear-history" class="secondary">清空历史</button>
+    </section>
+
+    <section class="card">
+      <h2>5. 错误处理演示</h2>
+      <button id="btn-errors">触发全部错误场景</button>
+      <div id="error-log" class="log"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
