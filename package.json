@@ -1,0 +1,10 @@
+{
+  "name": "css-typed-om-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CSS Typed OM 实验室：单位换算、表达式求值、批量样式更新与性能对照",
+  "scripts": {
+    "test": "for f in tests/*.test.js; do node \"$f\" || exit 1; done",
+    "serve": "python3 -m http.server 8080"
+  }
+}

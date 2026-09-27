@@ -1,0 +1,103 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #0f1420;
+  color: #e6e9f0;
+  line-height: 1.5;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: #161d2e;
+  border-bottom: 1px solid #2a3450;
+}
+h1 { font-size: 20px; margin: 0; }
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  display: grid;
+  gap: 16px;
+}
+.card {
+  background: #161d2e;
+  border: 1px solid #2a3450;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.card h2 { font-size: 15px; margin: 0 0 12px; color: #9db4e8; }
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+input, select, button {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #3a4767;
+  background: #0f1420;
+  color: inherit;
+}
+input[type="number"] { width: 90px; }
+#expr-input { flex: 1; min-width: 260px; }
+button {
+  background: #2f5fd0;
+  border-color: #2f5fd0;
+  cursor: pointer;
+}
+button:hover { background: #3d6fe0; }
+.result {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #0b0f1a;
+  border: 1px solid #2a3450;
+  white-space: pre-wrap;
+  font-size: 13px;
+  min-height: 1.2em;
+}
+.result.ok { border-color: #2e7d4f; }
+.result.warn { border-color: #b8860b; }
+.result.error { border-color: #b0392e; color: #f0a9a2; }
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #555;
+}
+.badge.ok { background: #2e7d4f; }
+.badge.warn { background: #b8860b; }
+.hint { font-size: 12px; color: #8a93ab; margin: 4px 0; }
+.demo-area {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+.demo-box {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2f5fd0, #7a3fd0);
+  border-radius: 6px;
+  transition: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+th, td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid #2a3450;
+}
+th { color: #9db4e8; }
+ul { margin: 0; padding-left: 20px; font-size: 13px; }
+code { background: #0b0f1a; padding: 1px 5px; border-radius: 4px; }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Typed OM 实验室</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>CSS Typed OM 实验室</h1>
+  <span id="support-badge" class="badge">检测中…</span>
+</header>
+
+<main>
+  <section class="card">
+    <h2>1. 特性检测</h2>
+    <pre id="support-status" class="result"></pre>
+  </section>
+
+  <section class="card">
+    <h2>2. 单位换算（px / em / rem / vw / vh / %）</h2>
+    <div class="row">
+      <input id="conv-value" type="number" value="16" step="any">
+      <select id="conv-from">
+        <option>px</option><option>em</option><option>rem</option>
+        <option>vw</option><option>vh</option><option>%</option>
+      </select>
+      <span>→</span>
+      <select id="conv-to">
+        <option>px</option><option>em</option><option>rem</option>
+        <option>vw</option><option>vh</option><option>%</option>
+      </select>
+      <button id="conv-btn">换算</button>
+    </div>
+    <pre id="conv-result" class="result"></pre>
+  </section>
+
+  <section class="card">
+    <h2>3. 表达式求值（CSSMathSum / CSSMathProduct）</h2>
+    <div class="row">
+      <input id="expr-input" type="text" value="(10px + 2em) * 3 - 5%"
+             placeholder="如 (10px + 2em) * 3 - 5%">
+      <button id="expr-btn">求值</button>
+    </div>
+    <p class="hint">试试：<code>10px / 0</code>（除零）、<code>5px + 3s</code>（单位不兼容）、
+      嵌套超过 64 层的括号（过深降级）</p>
+    <pre id="expr-result" class="result"></pre>
+  </section>
+
+  <section class="card">
+    <h2>4. 批量样式更新</h2>
+    <div class="row">
+      <label>更新条数 <input id="batch-count" type="number" value="100" min="1"></label>
+      <button id="batch-btn">应用批量更新</button>
+    </div>
+    <div class="demo-area">
+      <div class="demo-box"></div><div class="demo-box"></div>
+      <div class="demo-box"></div><div class="demo-box"></div>
+      <div class="demo-box"></div><div class="demo-box"></div>
+      <div class="demo-box"></div><div class="demo-box"></div>
+    </div>
+    <pre id="batch-result" class="result"></pre>
+  </section>
+
+  <section class="card">
+    <h2>5. 性能对照（Typed OM vs 字符串拼接）</h2>
+    <div class="row">
+      <label>每轮更新条数 <input id="bench-count" type="number" value="200" min="1"></label>
+      <button id="bench-btn">运行基准测试</button>
+    </div>
+    <pre id="bench-result" class="result"></pre>
+    <table>
+      <thead>
+        <tr><th>场景</th><th>Typed OM</th><th>字符串</th><th>加速比</th><th>Typed OM 可用</th></tr>
+      </thead>
+      <tbody id="bench-history"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>6. Web Worker 批量求值</h2>
+    <button id="worker-btn">在 Worker 中求值 502 条表达式</button>
+    <pre id="worker-result" class="result"></pre>
+  </section>
+
+  <section class="card">
+    <h2>7. 降级事件日志（IndexedDB 持久化）</h2>
+    <ul id="fallback-log"></ul>
+  </section>
+</main>
+
+<script src="js/units.js"></script>
+<script src="js/expression.js"></script>
+<script src="js/typed-om-engine.js"></script>
+<script src="js/string-engine.js"></script>
+<script src="js/benchmark.js"></script>
+<script src="js/db.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
